@@ -171,8 +171,9 @@ export default class AttachmentNameFormatting extends Plugin {
 							for (const fileIndex in fileList) {
 								progress.empty();
 								progress.createEl("span", {
-									text: `Attachment renaming: ${fileIndex + 1
-										}/${fileList.length}`,
+									text: `Attachment renaming: ${
+										fileIndex + 1
+									}/${fileList.length}`,
 								});
 
 								await this.handleAttachmentNameFormatting(
@@ -304,7 +305,7 @@ export default class AttachmentNameFormatting extends Plugin {
 								item.link,
 								file.basename,
 								this.settings[
-								fileType as keyof ANFSettings
+									fileType as keyof ANFSettings
 								] as string,
 								this.settings
 							) &&
@@ -330,7 +331,7 @@ export default class AttachmentNameFormatting extends Plugin {
 									attachmentFile.path.replace(
 										path.extname(attachmentFile.path),
 										"_copy" +
-										path.extname(attachmentFile.path)
+											path.extname(attachmentFile.path)
 									);
 
 								await this.app.vault.adapter.copy(
@@ -385,7 +386,7 @@ export default class AttachmentNameFormatting extends Plugin {
 						let parent_path = this.vaultAttachmentFolderPath;
 
 						if (parent_path === undefined) {
-							parent_path = '/'
+							parent_path = "/";
 						}
 
 						if (parent_path.startsWith("./")) {
@@ -398,7 +399,7 @@ export default class AttachmentNameFormatting extends Plugin {
 						// Fetch subfolder setting
 						const subfolder =
 							this.settings.subfolders[
-							ATTACHMENT_TYPE.indexOf(fileType)
+								ATTACHMENT_TYPE.indexOf(fileType)
 							];
 
 						const baseNameComponent = [
@@ -466,9 +467,15 @@ export default class AttachmentNameFormatting extends Plugin {
 
 							let connectors = [];
 							for (let i of optionIndex) {
-								connectors.push(
-									this.settings.multipleConnectors[i]
-								);
+								if (
+									this.settings.multipleConnectorsEnabled[i]
+								) {
+									connectors.push(
+										this.settings.multipleConnectors[i]
+									);
+								} else {
+									connectors.push("");
+								}
 							}
 
 							for (let i = 1; i < baseNameComponent.length; i++) {
@@ -516,7 +523,7 @@ export default class AttachmentNameFormatting extends Plugin {
 								destinationFile.path.substring(
 									0,
 									destinationFile.path.length -
-									destinationFile.name.length
+										destinationFile.name.length
 								);
 							const tmpName =
 								"tmp" + Date.now() + "_" + destinationFile.name;
@@ -525,11 +532,11 @@ export default class AttachmentNameFormatting extends Plugin {
 							);
 							console.log(
 								'Rename attachment "' +
-								destinationFile.name +
-								'" to "' +
-								destinationFile_path +
-								tmpName +
-								'"'
+									destinationFile.name +
+									'" to "' +
+									destinationFile_path +
+									tmpName +
+									'"'
 							);
 							await this.app.fileManager.renameFile(
 								destinationFile,
@@ -542,10 +549,10 @@ export default class AttachmentNameFormatting extends Plugin {
 						);
 						console.log(
 							'Rename attachment "' +
-							attachmentFile.path +
-							'" to "' +
-							fullName +
-							'"'
+								attachmentFile.path +
+								'" to "' +
+								fullName +
+								'"'
 						);
 
 						const oldName = attachmentFile.name;
@@ -599,8 +606,8 @@ export default class AttachmentNameFormatting extends Plugin {
 						const file_path = normalizePath(
 							// @ts-ignore
 							this.app.vault.adapter.basePath +
-							"\\" +
-							attachement.path
+								"\\" +
+								attachement.path
 						);
 						console.log("Get attachment", file_path);
 						// Get the attachment and write into JSZip instance
@@ -623,9 +630,9 @@ export default class AttachmentNameFormatting extends Plugin {
 						normalizePath(
 							// @ts-ignore
 							this.app.vault.adapter.basePath +
-							"/" +
-							file.basename +
-							"_Attachments.zip"
+								"/" +
+								file.basename +
+								"_Attachments.zip"
 						)
 					)
 				)
@@ -695,8 +702,8 @@ export default class AttachmentNameFormatting extends Plugin {
 			const file_path = normalizePath(
 				// @ts-ignore
 				this.app.vault.adapter.basePath +
-				"\\" +
-				parseLinktext(file.path).path
+					"\\" +
+					parseLinktext(file.path).path
 			);
 			await FileSystemAdapter.readLocalFile(file_path).then((data) =>
 				zip.file(normalizePath(file.name), data)
@@ -711,7 +718,7 @@ export default class AttachmentNameFormatting extends Plugin {
 					normalizePath(
 						// @ts-ignore
 						this.app.vault.adapter.basePath +
-						"/Unused_Attachments.zip"
+							"/Unused_Attachments.zip"
 					)
 				)
 			)

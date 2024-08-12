@@ -1,3 +1,14 @@
+## [2.1.9](https://github.com/JYC333/obsidian-file-structure-format/compare/2.1.7...2.1.9) (2024-08-12)
+
+
+### Bug Fixes
+
+* fix broken bug in 2.1.7 ([1bf558a](https://github.com/JYC333/obsidian-file-structure-format/commit/1bf558ac726b5070407450dc6437fccccb3f32dc)), closes [#35](https://github.com/JYC333/obsidian-file-structure-format/issues/35)
+* fix connector can't be set None ([bcec760](https://github.com/JYC333/obsidian-file-structure-format/commit/bcec760c31f222801c69479bb05b359b5cc32bfd)), closes [#36](https://github.com/JYC333/obsidian-file-structure-format/issues/36)
+* no active editor won't break plugin now, set a minimum time for plugin run the second time ([c11e44a](https://github.com/JYC333/obsidian-file-structure-format/commit/c11e44ab14d3f5ab0eac50f568322e5f1bf86b3e)), closes [#29](https://github.com/JYC333/obsidian-file-structure-format/issues/29)
+
+
+
 ## [2.1.8](https://github.com/JYC333/obsidian-attachment-name-formatting/compare/2.1.7...2.1.8) (2023-12-28)
 
 
