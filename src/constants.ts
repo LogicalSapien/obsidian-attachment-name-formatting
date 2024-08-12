@@ -1,7 +1,7 @@
 import { ANFSettings, ExtensionList } from "./types";
 
 export const extensions: ExtensionList = {
-	image: ["png", "webp", "jpg", "jpeg", "gif", "bmp", "svg"],
+	image: ["avif", "png", "webp", "jpg", "jpeg", "gif", "bmp", "svg"],
 	audio: ["mp3", "wav", "m4a", "ogg", "3gp", "flac"], // "webm"
 	video: ["mp4", "webm", "ogv", "mov", "mkv"], // "webm"
 	pdf: ["pdf"],

@@ -165,7 +165,54 @@ export default class AttachmentNameFormatting extends Plugin {
 						if (result) {
 							const fileList = this.app.vault
 								.getFiles()
-								.filter((file) => file.path.includes(folder));
+								.filter(
+									(file) =>
+										file.path.startsWith(folder + "/") &&
+										file.extension === "md" &&
+										file.parent.path === folder
+								);
+
+							const progress = this.addStatusBarItem();
+							for (const fileIndex in fileList) {
+								progress.empty();
+								progress.createEl("span", {
+									text: `Attachment renaming: ${
+										fileIndex + 1
+									}/${fileList.length}`,
+								});
+
+								await this.handleAttachmentNameFormatting(
+									fileList[fileIndex],
+									true
+								);
+							}
+							progress.empty();
+						}
+					}).open();
+				}).open();
+			},
+		});
+
+		this.addCommand({
+			id: "scan-folder-command-recursive",
+			name: "Scan Files in the Folder (Recursive)",
+			callback: () => {
+				new FolderScanModal(this.app, this, (folder) => {
+					console.log(
+						`Will scan the folder and all subfolders: ${folder}`
+					);
+					this.handleLog(
+						`Will scan the folder and all subfolders: ${folder}`
+					);
+					new FolderRenameWarningModal(this.app, async (result) => {
+						if (result) {
+							const fileList = this.app.vault
+								.getFiles()
+								.filter(
+									(file) =>
+										file.path.startsWith(folder + "/") &&
+										file.extension === "md"
+								);
 
 							const progress = this.addStatusBarItem();
 							for (const fileIndex in fileList) {
