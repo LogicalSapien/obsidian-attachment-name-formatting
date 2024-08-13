@@ -320,6 +320,36 @@ export class ANFSettingTab extends PluginSettingTab {
 				});
 			});
 
+		new Setting(containerEl)
+			.setName("Note name as subfolder")
+			.setDesc("Add note name as subfolder for attachments")
+			.addToggle((toggle) => {
+				toggle
+					.setValue(this.plugin.settings.noteNameSubfolder)
+					.onChange(async (value) => {
+						this.plugin.settings.noteNameSubfolder = value;
+						await this.plugin.saveSettings();
+						this.display();
+					});
+			});
+
+		if (this.plugin.settings.noteNameSubfolder) {
+			new Setting(containerEl)
+				.setName(
+					"Note name subfolder in front of attachment types folder"
+				)
+				.setDesc("Set note name as the front subfolder for attachments")
+				.addToggle((toggle) => {
+					toggle
+						.setValue(this.plugin.settings.noteNameSubfolderFront)
+						.onChange(async (value) => {
+							this.plugin.settings.noteNameSubfolderFront = value;
+							await this.plugin.saveSettings();
+							this.display();
+						});
+				});
+		}
+
 		containerEl.createEl("h2", { text: "Export Setting" });
 
 		new Setting(containerEl)

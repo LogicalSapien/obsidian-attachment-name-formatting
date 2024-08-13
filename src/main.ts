@@ -308,6 +308,8 @@ export default class AttachmentNameFormatting extends Plugin {
 
 		console.log("Formatting attachments...");
 
+		const noteName = file.basename;
+
 		// Get the metadata of the active file
 		const attachments = this.app.metadataCache.getFileCache(file);
 		// Check whether the file has attachments
@@ -444,10 +446,21 @@ export default class AttachmentNameFormatting extends Plugin {
 						}
 
 						// Fetch subfolder setting
-						const subfolder =
+						const subfolderAttachment =
 							this.settings.subfolders[
 								ATTACHMENT_TYPE.indexOf(fileType)
 							];
+
+						let subfolder = "";
+						if (this.settings.noteNameSubfolder) {
+							if (this.settings.noteNameSubfolderFront) {
+								subfolder =
+									noteName + "/" + subfolderAttachment;
+							} else {
+								subfolder =
+									subfolderAttachment + "/" + noteName;
+							}
+						}
 
 						const baseNameComponent = [
 							file.basename,

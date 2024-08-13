@@ -26,6 +26,8 @@ export interface ANFSettings {
 	enableExcludeFileName: boolean;
 	excludedFolders: string[];
 	subfolders: string[];
+	noteNameSubfolder: boolean;
+	noteNameSubfolderFront: boolean;
 	exportCurrentRiboon: boolean;
 	exportUnusedRiboon: boolean;
 	exportCurrentDeletion: boolean;

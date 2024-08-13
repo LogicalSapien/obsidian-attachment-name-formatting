@@ -31,6 +31,8 @@ export const DEFAULT_SETTINGS: ANFSettings = {
 	enableExcludeFileName: false,
 	excludedFolders: [],
 	subfolders: ["", "", "", ""],
+	noteNameSubfolder: false,
+	noteNameSubfolderFront: true,
 	exportCurrentRiboon: false,
 	exportUnusedRiboon: false,
 	exportCurrentDeletion: false,
