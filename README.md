@@ -1,3 +1,5 @@
+# This plugin will soon be archived and will no longer be maintained. I plan to wait for a while after the update to see if any issues arise. Personally, I've switched to using [Trilium](https://github.com/TriliumNext/Notes) as I found managing attachments and syncing notes manually with Obsidian a bit tedious. That said, Obsidian is still an excellent tool, and I have no criticisms of it. Thank you for using this plugin—I hope it has been helpful to you.
+
 ## Obsidian Attachment Name Formatting
 
 This plugin will format all attachments in the format: "noteName attachmentFormat indexNumber.xxx"
@@ -29,9 +31,10 @@ When using "Copy" mode, it will take a bit longer time than usual renaming time,
 #### Core Function
 
 -   Format attachments in active file, such as "noteName image 1.png". Format time and absolute note path hash can add into attachment name, such as "noteName image 1 20220101000000.png", "noteName image 1 6666cd76.png". Defualt setting is not adding time and path hash. You can also exclude the noteName in the attachment noteName, but the time suffix will be added automatically.
--   Format attachmnets in selected folder
--   Format attachments with customize subfolder for each attachment type
+-   Format attachmnets in selected folder (support recursively)
+-   Format attachments with customize subfolder for each attachment type, and can add note name as another level subfolder
 -   Attachment name can be customized for each type of attachment, you can use any character that allowed in a note name
+-   Attachment type not supported officially can be added in the setting
 -   Connector (the character between noteName, attachmentFormat, indexNumber, time and pathHash) can be customized, you can use any character that allowed in a note name. You can also customized different connectors seperately or even don't use connector.
 -   Add new attachment -> will rename the attachment based on type and index
 -   Change order -> will rename attachments with new order
@@ -44,12 +47,14 @@ When using "Copy" mode, it will take a bit longer time than usual renaming time,
 
 ### Supported attachment format
 
-1. Image files: png, webp, jpg, jpeg, gif, bmp, svg
+1. Image files: png, webp, jpg, jpeg, gif, bmp, svg, avif
 2. Audio files: mp3, wav, m4a, ogg, 3gp, flac
 3. Video files: mp4, webp, ogv, mov, mkv
 4. PDF files: pdf
 
 `webm` file type will be regard as vedieo even if it can be audio.
+
+Customized attachment format can be added in the setting.
 
 ### Known Issues
 
@@ -58,8 +63,8 @@ When using "Copy" mode, it will take a bit longer time than usual renaming time,
 
 ### Roadmap
 
--   When deleting attachment in a file, rename it with "noteName attachmentFormat unuse 1.xxx".
--   When deleting an attachment that no other file using this attachment, delete it from vault. (Could be disable)
+~~-   When deleting attachment in a file, rename it with "noteName attachmentFormat unuse 1.xxx".
+-   When deleting an attachment that no other file using this attachment, delete it from vault. (Could be disable)~~
 
 ### Development Setup
 

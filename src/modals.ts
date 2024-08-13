@@ -195,7 +195,7 @@ export class MultiConnectorModal extends Modal {
 	}
 }
 
-export class SuboldersModal extends Modal {
+export class SubfoldersModal extends Modal {
 	plugin: AttachmentNameFormatting;
 
 	constructor(app: App, plugin: AttachmentNameFormatting) {
@@ -283,6 +283,137 @@ export class AttachmentExtensionModal extends Modal {
 						});
 				});
 		}
+	}
+
+	onClose() {
+		const { contentEl } = this;
+		contentEl.empty();
+	}
+}
+
+export class CustomAttachmentExtensionModal extends Modal {
+	plugin: AttachmentNameFormatting;
+
+	constructor(app: App, plugin: AttachmentNameFormatting) {
+		super(app);
+		this.plugin = plugin;
+	}
+
+	onOpen() {
+		const { contentEl } = this;
+		contentEl.createEl("h2", {
+			text: `Add/Remove custom attachment extenstions.`,
+		});
+		contentEl.createEl("p", {
+			text: "Please separate the extension with comma, for example: zip,rar.",
+		});
+
+		for (const extension of Object.keys(
+			this.plugin.settings.customExtensions
+		)) {
+			new Setting(contentEl)
+				.setName(extension)
+				.addText((text) => {
+					text.setValue(
+						this.plugin.settings.customExtensions[extension].join(
+							","
+						)
+					).onChange(async (value) => {
+						this.plugin.settings.customExtensions[extension] =
+							value.split(",");
+						await this.plugin.saveSettings();
+					});
+				})
+				.addExtraButton((extraButton) => {
+					extraButton.setIcon("x-circle").onClick(() => {
+						delete this.plugin.settings.customExtensions[extension];
+
+						this.plugin.saveSettings();
+						this.close();
+						this.open();
+					});
+				});
+		}
+
+		new Setting(contentEl).addButton((button) => {
+			button.setButtonText("Add").onClick(async () => {
+				new CustomAttachmentNameModal(this.app, this.plugin).open();
+				this.close();
+			});
+		});
+	}
+
+	onClose() {
+		const { contentEl } = this;
+		contentEl.empty();
+	}
+}
+
+class CustomAttachmentNameModal extends Modal {
+	plugin: AttachmentNameFormatting;
+	text: string;
+
+	constructor(app: App, plugin: AttachmentNameFormatting) {
+		super(app);
+		this.plugin = plugin;
+	}
+
+	onOpen() {
+		const { contentEl } = this;
+		contentEl.createEl("h1", {
+			text: "Add custom attachment type",
+		});
+		contentEl.createEl("p", {
+			text: 'Please enter the custom attachment type name, for example "custom".',
+		});
+		contentEl.createEl("p", {
+			text: "The name will be used as the format name for this type of attachment.",
+		});
+		contentEl.createEl("p", {
+			text: "Note: the name should not be empty or already exists.",
+		});
+
+		new Setting(contentEl)
+			.addText((text) => {
+				text.setPlaceholder("custom").onChange(async (value) => {
+					this.text = value;
+				});
+			})
+			.addButton((button) =>
+				button
+					.setButtonText("OK")
+					.setCta()
+					.onClick(() => {
+						if (
+							this.plugin.settings.customExtensions.hasOwnProperty(
+								this.text
+							)
+						) {
+							new WarningModal(
+								this.app,
+								"Custom extension type already exists, please change."
+							).open();
+						} else if (
+							this.text === undefined ||
+							this.text === ""
+						) {
+							new WarningModal(
+								this.app,
+								"Custom extension type can not be empty."
+							).open();
+						} else {
+							this.plugin.settings.customExtensions[
+								this.text.toString()
+							] = [];
+							this.plugin.saveSettings();
+							new CustomAttachmentExtensionModal(
+								app,
+								this.plugin
+							).open();
+							this.close();
+						}
+					})
+			);
 	}
 
 	onClose() {

@@ -1,3 +1,13 @@
+# [2.2.0](https://github.com/JYC333/obsidian-attachment-name-formatting/compare/2.1.10...2.2.0) (2024-08-13)
+
+
+### Features
+
+* add custom attachment types support ([9f2e76a](https://github.com/JYC333/obsidian-attachment-name-formatting/commit/9f2e76a464d2606bfbf9dd69c6ea66927f03315d)), closes [#43](https://github.com/JYC333/obsidian-attachment-name-formatting/issues/43)
+* add using notename as a subfolder ([2310cc4](https://github.com/JYC333/obsidian-attachment-name-formatting/commit/2310cc42c1c6a9cfcc5b70ff092b0757f22e12c1)), closes [#40](https://github.com/JYC333/obsidian-attachment-name-formatting/issues/40) [#44](https://github.com/JYC333/obsidian-attachment-name-formatting/issues/44)
+
+
+
 ## [2.1.10](https://github.com/JYC333/obsidian-attachment-name-formatting/compare/2.1.9...2.1.10) (2024-08-12)
 
 

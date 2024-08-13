@@ -13,7 +13,7 @@ export const DEFAULT_SETTINGS: ANFSettings = {
 	multipleConnectors: ["_", "_", "_", "_"],
 	multipleConnectorsEnabled: [true, true, true, true],
 	enableImage: true,
-	imageExtensions: [true, true, true, true, true, true, true], // same amout with image extensions
+	imageExtensions: [true, true, true, true, true, true, true, true], // same amout with image extensions
 	image: "image",
 	enableAudio: true,
 	audioExtensions: [true, true, true, true, true, true], // same amout with audio extensions
@@ -24,6 +24,8 @@ export const DEFAULT_SETTINGS: ANFSettings = {
 	enablePdf: true,
 	pdfExtensions: [true], // same amout with pdf extensions
 	pdf: "pdf",
+	customExtensions: {},
+	enableCustom: false,
 	oneInMany: "Default",
 	enableAuto: true,
 	enableTime: false,

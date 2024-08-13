@@ -4,8 +4,9 @@ import AttachmentNameFormatting from "./main";
 import {
 	ExcludedFoldersModal,
 	MultiConnectorModal,
-	SuboldersModal,
+	SubfoldersModal,
 	AttachmentExtensionModal,
+	CustomAttachmentExtensionModal,
 	WarningModal,
 } from "./modals";
 import { ANFSettings } from "./types";
@@ -128,6 +129,9 @@ export class ANFSettingTab extends PluginSettingTab {
 		}
 
 		for (const item of ATTACHMENT_TYPE) {
+			if (item === "custom") {
+				continue;
+			}
 			const attachmentType = item as keyof ANFSettings;
 			const typeSetting = new Setting(containerEl)
 				.setName(`Format for ${attachmentType}`)
@@ -188,6 +192,24 @@ export class ANFSettingTab extends PluginSettingTab {
 					});
 			});
 		}
+
+		new Setting(containerEl)
+			.setName(`Format for custom attachment types`)
+			.setDesc(`Set the format for custom attachment types.`)
+			.addExtraButton((button) => {
+				button.onClick(() => {
+					new CustomAttachmentExtensionModal(app, this.plugin).open();
+				});
+			})
+			.addToggle((toggle) => {
+				toggle
+					.setValue(this.plugin.settings.enableCustom)
+					.onChange(async (value) => {
+						this.plugin.settings.enableCustom = value;
+						await this.plugin.saveSettings();
+						this.display();
+					});
+			});
 
 		new Setting(containerEl)
 			.setName("Handle same attachment used in different notes")
@@ -316,7 +338,7 @@ export class ANFSettingTab extends PluginSettingTab {
 			)
 			.addExtraButton((extraButton) => {
 				extraButton.onClick(() => {
-					new SuboldersModal(app, this.plugin).open();
+					new SubfoldersModal(app, this.plugin).open();
 				});
 			});
 

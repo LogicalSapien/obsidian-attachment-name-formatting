@@ -19,6 +19,8 @@ export interface ANFSettings {
 	enablePdf: boolean;
 	pdfExtensions: boolean[];
 	pdf: string;
+	customExtensions: Record<string, string[]>;
+	enableCustom: boolean;
 	oneInMany: string;
 	enableAuto: boolean;
 	enableTime: boolean;

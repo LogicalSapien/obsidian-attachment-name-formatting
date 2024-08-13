@@ -321,22 +321,52 @@ export default class AttachmentNameFormatting extends Plugin {
 			// Create a list of attachments, classified by types
 			const attachmentList: AttachmentList = {};
 			for (const item of attachments.embeds) {
+				let extensionAll;
+				// Check whether the custom extensions are enabled
+				if (this.settings.enableCustom) {
+					extensionAll = Object.assign(
+						{},
+						extensions,
+						this.settings.customExtensions
+					);
+				} else {
+					extensionAll = Object.assign({}, extensions);
+				}
+
 				for (const [fileType, fileExtensions] of Object.entries(
-					extensions
+					extensionAll
 				)) {
-					const attachmentEnable = ("enable" +
-						fileType.slice(0, 1).toUpperCase() +
-						fileType.slice(1)) as keyof ANFSettings;
-					const extensionEnable = (fileType +
-						"Extensions") as keyof ANFSettings;
 					const attachmentExtension = item.link.split(".").pop();
-					const attachmentExtensionInd =
-						extensions[fileType].indexOf(attachmentExtension);
+
+					// Check whether official attachment is enabled
+					let isAttachmentEnable;
+					if (Object.keys(extensions).contains(fileType)) {
+						const attachmentEnable = ("enable" +
+							fileType.slice(0, 1).toUpperCase() +
+							fileType.slice(1)) as keyof ANFSettings;
+						const extensionEnable = (fileType +
+							"Extensions") as keyof ANFSettings;
+						const attachmentExtensionInd =
+							extensions[fileType].indexOf(attachmentExtension);
+						isAttachmentEnable =
+							this.settings[attachmentEnable] &&
+							// @ts-ignore
+							this.settings[extensionEnable][
+								attachmentExtensionInd
+							];
+					} else {
+						isAttachmentEnable = true;
+					}
+
+					// Get all custom extensions
+					const customExtentions = [].concat(
+						...Object.values(this.settings.customExtensions)
+					);
+
 					if (
-						fileExtensions.contains(attachmentExtension) &&
-						this.settings[attachmentEnable] &&
-						// @ts-ignore
-						this.settings[extensionEnable][attachmentExtensionInd]
+						(fileExtensions.contains(attachmentExtension) ||
+							customExtentions.contains(attachmentExtension)) &&
+						isAttachmentEnable
 					) {
 						if (!attachmentList.hasOwnProperty(fileType)) {
 							attachmentList[fileType] = [];
@@ -464,7 +494,9 @@ export default class AttachmentNameFormatting extends Plugin {
 
 						const baseNameComponent = [
 							file.basename,
-							this.settings[fileType as keyof ANFSettings],
+							Object.keys(this.settings).includes(fileType)
+								? this.settings[fileType as keyof ANFSettings]
+								: fileType,
 							num,
 						];
 
