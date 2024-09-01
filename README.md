@@ -1,4 +1,4 @@
-# This plugin will soon be archived and will no longer be maintained. I plan to wait for a while after the update to see if any issues arise. Personally, I've switched to using [Trilium](https://github.com/TriliumNext/Notes) as I found managing attachments and syncing notes manually with Obsidian a bit tedious. That said, Obsidian is still an excellent tool, and I have no criticisms of it. Thank you for using this plugin—I hope it has been helpful to you.
+# This plugin is archived and will no longer be maintained. Personally, I've switched to using [Trilium](https://github.com/TriliumNext/Notes) as I found managing attachments and syncing notes manually with Obsidian a bit tedious. That said, Obsidian is still an excellent tool, and I have no criticisms of it. Thank you for using this plugin—I hope it is/has been helpful to you.
 
 ## Obsidian Attachment Name Formatting
 
