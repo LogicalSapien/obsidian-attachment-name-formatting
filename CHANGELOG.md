@@ -1,3 +1,56 @@
+#  (2024-10-03)
+
+
+### Bug Fixes
+
+* fix broken bug in 2.1.7 ([1bf558a](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/1bf558ac726b5070407450dc6437fccccb3f32dc)), closes [#35](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/35)
+* fix connector can't be set None ([346eb57](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/346eb5779806fe132345033606b2f527a7dcfed8)), closes [#36](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/36)
+* fix copy option not working ([1ec6243](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/1ec6243b4d74c8ef64a7c2a1709f27fa95542c4f)), closes [#29](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/29)
+* fix destination conflict ([5830926](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/583092624d1bc2c04ea2e7355ee256843eaa2508)), closes [#31](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/31)
+* fix didn't rename to expected folder ([8dbc942](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/8dbc942e4c3088612fb0451d83b0f9628e1ae9d9)), closes [#22](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/22)
+* fix log file bugs ([69ea364](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/69ea36405464641a3496ab41174123dcf7427214)), closes [#34](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/34)
+* fix open log file error ([01a4fd8](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/01a4fd8abe312f5bd934c2e4db27e5cf394f439b))
+* fix scan files in folder ([73cbc90](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/73cbc907919223678f89bd9c139307709f3f6f48)), closes [#38](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/38)
+* fix setting and update the README ([2b55e71](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/2b55e71ca7ea2641e077f5ae86bd475f517a3b95)), closes [#10](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/10)
+* fix setting issue after pull request ([57df0b2](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/57df0b27b489ea2258948e49b7334eecc206f963)), closes [#32](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/32)
+* fix the bug from 1.9.4 ([6b2dc34](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/6b2dc34bbf5372e02db489b4145407c670d74f20)), closes [#22](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/22) [#23](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/23)
+* fix the bug that cannot format the attachment name when filename has "." character ([67f5eaa](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/67f5eaa62578b870f86faec82e482272d625215f))
+* fix the excluding folder setting that didn't catch the folder under vault root ([7123f9f](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/7123f9fe189cbd7144cceaacf0ce9e6121fb9da6))
+* fix the export function and ribbon setting ([eb68f28](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/eb68f2859a72f3693c4e7d4848feee6b3de80efb))
+* fix the format of the time ([ea1b1ef](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/ea1b1ef2686c0dc882a8c6ccf1b7946335db1e32))
+* fix vault config bug ([60084b3](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/60084b3df9e0f27fcf2382c4b8ebeb08605ab38d)), closes [#30](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/30)
+* no active editor won't break plugin now, set a minimum time for plugin run the second time ([7faf232](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/7faf232fccf9fa1c9fa7db9dcfc967fd2115dc85)), closes [#29](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/29)
+* no active editor won't break plugin now, set a minimum time for plugin run the second time ([c11e44a](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/c11e44ab14d3f5ab0eac50f568322e5f1bf86b3e)), closes [#29](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/29)
+* ribbon fix and setting fix ([7314029](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/7314029a4911c64fa3c2189f062eb4d6e8866398))
+* update the renaming strategy ([1f84d50](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/1f84d500d176f348924e9be33c214130ac69ea09)), closes [#14](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/14)
+
+
+### Features
+
+* add custom attachment types support ([5a881e7](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/5a881e7beb35ba07da9d4a69283e4c92e477c9af)), closes [#43](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/43)
+* add image "webp" and video "webm" support ([e6dca33](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/e6dca33eafffd93ba6b5016b8183f2eb9d1997ac)), closes [#21](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/21)
+* add image "webp" and video "webm" support ([6fe610c](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/6fe610ca9dd6aabf68ce093294e9fb1d08cb23ab)), closes [#21](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/21)
+* add setting for disable automic reformatting ([cc5c371](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/cc5c3715ebf70fa9eb4dfa97322ca6baa3c2f916)), closes [#17](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/17)
+* add setting that config which extension can be ignored ([7d20f89](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/7d20f896ad433ab7374a4aea1af26f7c1999d5cc)), closes [#16](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/16)
+* add using notename as a subfolder ([2310cc4](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/2310cc42c1c6a9cfcc5b70ff092b0757f22e12c1)), closes [#40](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/40) [#44](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/44)
+* allow add time after index in the attachment name ([d0cab13](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/d0cab13db47d33999efa2f8936c738ca64331c28)), closes [#24](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/24)
+* allow disable attachment renaming on different attachment type ([5a4d92d](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/5a4d92d8af6a4412233d26070a350f50eb107243))
+* can use different connectors in the attachment name ([b37232d](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/b37232d44044205493def49171835d14aa217053)), closes [#25](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/25)
+* exclude auto format folder ([39dc182](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/39dc182eb478092e2cef0cab8f3adae972ef54e9))
+* feat: allow disable attachment renaming on different attachment type ([dcb2630](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/dcb2630de0a5188f9606e093e8503e7bced1001d)), closes [#14](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/14)
+* feat: allow disable attachment renaming on different attachment type ([a9e4b19](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/a9e4b19d14a1df053103577fe042f89b245506da)), closes [#14](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/14)
+* rename notes in folder command and log attachment name changing ([4f840c3](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/4f840c368cf871a14a57bd59c6b11c4149eb3a53)), closes [#11](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/11)
+* support adding subfolder for each type of attachment ([f11b7bb](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/f11b7bb52c19c3e55e19599927de4f72b3d02fab)), closes [#20](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/20)
+* support the one-in-many situation ([628a7c9](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/628a7c9c509072ca0dc3d375d55de1a681549718)), closes [#5](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/issues/5)
+* update the multiconnector setting strategy ([293e054](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/293e0549000509328f97863417ae505e6472267d))
+
+
+### Performance Improvements
+
+* improve setting and add donation ([121cf97](https://github.com/LogicalSapien/obsidian-attachment-name-formatting/commit/121cf97a1cebaa13269a03d1fd2cd0351d486c4a))
+
+
+
 # [2.2.0](https://github.com/JYC333/obsidian-attachment-name-formatting/compare/2.1.10...2.2.0) (2024-08-13)
 
 
