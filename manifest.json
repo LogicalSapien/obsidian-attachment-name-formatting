@@ -6,6 +6,5 @@
 	"description": "Obsidian plugin for formatting attachments name (filename attachmentType indexNumber.xxx)",
 	"author": "LogicalSapien",
 	"authorUrl": "https://github.com/LogicalSapien/obsidian-attachment-name-formatting",
-	"fundingUrl": "https://github.com/LogicalSapien/obsidian-attachment-name-formatting",
 	"isDesktopOnly": false
 }
