@@ -1,8 +1,16 @@
-# This plugin is archived and will no longer be maintained. Personally, I've switched to using [Trilium](https://github.com/TriliumNext/Notes) as I found managing attachments and syncing notes manually with Obsidian a bit tedious. That said, Obsidian is still an excellent tool, and I have no criticisms of it. Thank you for using this plugin—I hope it is/has been helpful to you.
 
 ## Obsidian Attachment Name Formatting
 
 This plugin will format all attachments in the format: "noteName attachmentFormat indexNumber.xxx"
+
+## Forked from JYC333's Repository
+
+This repository is a fork of [obsidian-attachment-name-formatting](https://github.com/JYC333/obsidian-attachment-name-formatting), which was a highly useful plugin for managing attachment names in Obsidian. Unfortunately, the original project has ceased updates, prompting me to fork it for continued development and improvements.
+
+## Goals for This Fork
+
+- **Maintain and Update**: To keep the plugin compatible with the latest versions of Obsidian and implement new features as needed.
+- **Community Contributions**: Encourage contributions from the community to enhance the functionality and usability of the plugin.
 
 The attachmentFormat are image, audio, video and pdf. IndexNumber is ascending number from 1 based on the attchmentFormat.You can change the default format for different type of attachments and the connector in the setting. Basically, there are three components can be enabled or disabled in attachment name: **noteName**, **time** (format time), and **pathHash** (absolute note path hash). Therefore, there could be seven types for the attachment name format:
 
