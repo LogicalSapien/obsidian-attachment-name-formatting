@@ -5,6 +5,6 @@
 	"minAppVersion": "0.12.0",
 	"description": "Obsidian plugin for formatting attachments name (filename attachmentType indexNumber.xxx)",
 	"author": "LogicalSapien",
-	"authorUrl": "https://github.com/LogicalSapien/obsidian-attachment-name-formatting",
+	"authorUrl": "https://github.com/LogicalSapien",
 	"isDesktopOnly": false
 }
